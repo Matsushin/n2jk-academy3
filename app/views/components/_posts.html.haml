@@ -3,24 +3,31 @@
     %li.list-group-item.posts__list{v: {repeat: 'post : posts'}}
       .posts__container
         %img.posts__user-icon{v: {attr: 'src: post.icon'}}
+        .posts__body
           .posts__title{v: {on: 'click: selectPost(post.user_id, post.id)'}}
             {{post.title}}
           .posts__post-updated-date.text-muted.pull-right
             {{post.updated_at}}
-  .posts__post-container{v: {if: 'isDetail()'}}
-    .panel.panel-default
-      .pane-heading.posts__post-heading
-        {{post.title}}
-        %a.btn.btn-default{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
-          編集
-      .panel-body.posts__post-edit-form{v: {if: 'editing'}}
-        %form{v: {on: 'submit: updatePost'}}
-          .form-group
-            %textarea.form-control{rows: 10, v: {model: 'editingPost.body'}}
-          %input.btn.btn-primary{type: 'submit', value: '更新'}
-          %a.btn.btn-default{v: {on: 'click: toggleEditing'}}
-            キャンセル
-          %a.btn.btn-link.pull-right{v: {on: 'click: deletePost'}}
-            削除
-      .panel-body.posts__post-body{v: {if: '!editing'}}
-        {{post.body}}
+          %a.btn.btn-default{v: {on: 'click: selectPost(post.user_id, post.id)'}}
+            内容を見る
+  .panel.panel-default.posts__post-container{v: {if: 'isDetail()'}}
+    .pane-heading.posts__post-heading
+      {{post.title}}
+      %a.btn.btn-default{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
+        編集
+    .panel-body.posts__post-edit-form{v: {if: 'editing'}}
+      %form{v: {on: 'submit: updatePost'}}
+        .form-group
+          %textarea.form-control{rows: 10, v: {model: 'editingPost.body'}}
+        %input.btn.btn-primary{type: 'submit', value: '更新'}
+        %a.btn.btn-default{v: {on: 'click: toggleEditing'}}
+          キャンセル
+        %a.btn.btn-link.pull-right{v: {on: 'click: deletePost'}}
+          削除
+    .panel-body.posts__post-body{v: {if: '!editing'}}
+      {{{marked(post.body)}}}
+
+    %h3
+      = fa_icon 'comment'
+    %ul
+      %li

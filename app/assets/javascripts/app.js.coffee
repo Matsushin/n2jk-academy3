@@ -37,8 +37,14 @@ $ ->
   global =
     loginUserId: $('#vue-app').data('login-user-id')
 
+  markdownable =
+    methods:
+      marked: (text) ->
+        marked(text)
+
   Vue.component 'postsComponent',
     template: '#vue-posts'
+    mixins: [markdownable]
     data: ->
       posts: []
       post: null

@@ -4,6 +4,7 @@
 #= require underscore
 #= require vue
 #= require marked
+#= require marked.config
 #= require nicescroll
 #= require app
 #= require jquery-textcomplete
