@@ -13,8 +13,8 @@
   .panel.panel-default.posts__post-container{v: {if: 'isDetail()'}}
     .pane-heading.posts__post-heading
       {{post.title}}
-      %a.btn.btn-default{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
-        編集
+      %a.posts__post-edit-btn{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
+        = fa_icon 'pencil'
     .panel-body.posts__post-edit-form{v: {if: 'editing'}}
       %form{v: {on: 'submit: updatePost'}}
         .form-group
@@ -30,5 +30,5 @@
     .comments__add-form
       %form{v: {on: 'submit: addComment'}}
         .form-group
-          %input.form-control{type: 'text', v: {model: 'newComment'}}
+          %textarea.form-control{type: 'text', v: {model: 'newComment'}}
 

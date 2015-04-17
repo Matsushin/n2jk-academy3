@@ -10,6 +10,14 @@
   width: 64px
   height: 64px
   border-radius: 50%
+  &:after
+    position: absolute
+    content: ""
+    display: block
+    border: 10px solid transparent
+    border-right: 10px solid $_gray-light
+    top: 25px
+    left: -20px
 
 .comments__body
   margin-left: 80px
@@ -22,7 +30,18 @@
   border: none
   box-shadow: none
 
-.comments__comment-body
-  background-color: $_gray-light
+.comments__comment-edit-form
   margin-left: 80px
+  background-color: $_gray-light
   padding: 15px
+
+.comments__comment-body
+  margin-left: 80px
+  background-color: $_gray-light
+  padding: 15px
+
+.comments__comment-edit-btn
+  color: $_green-light
+
+.comments__comment-delete-btn
+  color: $_green

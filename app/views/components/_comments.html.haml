@@ -1,5 +1,6 @@
 %script#vue-comments{type: 'text/x-template'}
   .comments__comment-container
+    %img.comments__user-icon{v: {attr: 'src: comment.icon'}}
     .comments__comment-edit-form{v: {if: 'editing'}}
       %form{v: {on: 'submit: updateComment'}}
         .form-group
@@ -7,11 +8,9 @@
         %input.btn.btn-primary{type: 'submit', value: '更新'}
         %a.btn.btn-default{v: {on: 'click: toggleEditing'}}
           キャンセル
-        %a.btn.btn-link.pull-right{v: {on: 'click: deleteComment'}}
-          削除
-    .comments__comment-container
-      %img.comments__user-icon{v: {attr: 'src: comment.icon'}}
-      .comments__comment-body{v: {if: '!editing'}}
-        {{{marked(comment.body)}}}
-        %a.btn.btn-default{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
-          編集
+        %a.comments__comment-delete-btn.pull-right{v: {on: 'click: deleteComment'}}
+          = fa_icon 'trash-o'
+    .comments__comment-body{v: {if: '!editing'}}
+      {{{marked(comment.body)}}}
+      %a.comments__comment-edit-btn{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
+        = fa_icon 'pencil'
