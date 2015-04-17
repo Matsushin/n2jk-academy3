@@ -4,18 +4,22 @@
       %li
         %a{data: {target: '#post-modal', toggle: 'modal'}}
           = fa_icon 'pencil-square-o'
+          %br
           %span.nav-label New POST
       %li
         %a{onclick: 'app.setDisplayingMode("home")'}
           = fa_icon 'home'
+          %br
           %span.nav_label HOME
       %li
         %a{onclick: 'app.setDisplayingPost()'}
           = fa_icon 'file-text-o'
+          %br
           %span.nav_label POSTS
       %li
         %a{onclick: 'app.setDisplayingMode("performance")'}
           = fa_icon 'line-chart'
+          %br
           %span.nav-label PERFORMANCE
       %li
         %a{onclick: 'app.setDisplayingMode("academy")'}
