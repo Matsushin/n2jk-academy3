@@ -1,0 +1,12 @@
+%script#vue-users{type: 'text/x-template'}
+  %ul.list-group
+    %li.list-group-item.users__list{v: {repeat: 'user : users'}}
+      .users__container
+        %img.users__user-icon{v: {attr: 'src: user.icon'}}
+        .users__body
+          .users__name
+            {{user.name}}
+          .users__user-created-date.text-muted
+            入学日 {{user.created_at}}
+          .users__user-post-count.text-muted
+            投稿数 {{user.post_count}}

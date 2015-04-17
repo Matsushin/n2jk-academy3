@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :posts, only: %i(index)
 
   resources :users do
-    resource :posts do
+    resources :posts do
       collection do
         patch 'readall'
       end

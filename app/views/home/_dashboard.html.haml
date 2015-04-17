@@ -42,7 +42,7 @@
   .app__posts{v: {if: 'isDisplayingPost()'}}
     = render 'posts/posts'
   .app__academy{v: {if: 'isDisplayingAcademy()'}}
-    %h2 アカデミー生
+    = render 'users/users'
   .app__performance{v: {if: 'isDisplayingPerformance()'}}
     %h2 実績
 = render 'posts/modal_form'

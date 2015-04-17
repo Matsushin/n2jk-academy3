@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_user, only: [:show, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        format.json { render :show, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -58,9 +59,12 @@ class PostsController < ApplicationController
   end
 
   private
+    def set_user
+      @user = User.find(params[:user_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = @user.posts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
