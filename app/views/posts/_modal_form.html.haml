@@ -1,0 +1,18 @@
+#post-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{data: {dismiss: 'modal'}, type: 'button'}
+          %span{'aria-hide' => 'true'} ×
+        %h3.modal-title
+          週報を書く
+      .modal-body.js-post-form
+        %p
+          【何を書けば良いの？】
+        %p
+          あなたが週報で書くのは「学び」です。何を学んだか書いてください。他の人にも共有して意味があるように書きましょう。「学び」を書くために、学びのきっかけとなった出来事なども補足で書くといいでしょう。学びを抽出するスキルは成長には不可欠です。
+        - @post ||= Post.new
+        = simple_form_for [current_user, @post], remote: true, format: 'json', html: {id: 'post-form'} do |f|
+          = f.input :body, label: false, class: 'form-control', input_html: {rows: 15, class: '', style: 'width: 100%'}
+          .modal-footer{style: 'text-align: center;'}
+          = f.button :submit, '投稿', class: 'btn btn-primary', data: {disable_with: '送信中...'}

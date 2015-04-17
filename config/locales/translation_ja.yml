@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      comment: comment  #g
+      post: post  #g
+      unread: unread  #g
+      user: user  #g
+
+    attributes:
+      comment:
+        body: body  #g
+
+      post:
+        body: body  #g
+        comments: comments  #g
+        unreads: unreads  #g
+        user: :activerecord.models.user  #g
+
+      unread:
+        resource_type: resource_type  #g
+
+      user:
+        comments: comments  #g
+        email: email  #g
+        github_token: github_token  #g
+        icon: icon  #g
+        name: name  #g
+        nickname: nickname  #g
+        posts: posts  #g
+        unreads: unreads  #g

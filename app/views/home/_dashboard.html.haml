@@ -2,7 +2,7 @@
   .app__navbar-main.col-sm-1
     %ul.side-nav.nav{style: 'color: white'}
       %li
-        %a
+        %a{data: {target: '#post-modal', toggle: 'modal'}}
           = fa_icon 'pencil-square-o'
           %span.nav-label New POST
       %li
@@ -10,7 +10,7 @@
           = fa_icon 'home'
           %span.nav_label HOME
       %li
-        %a{onclick: 'app.setDisplayingMode("post")'}
+        %a{onclick: 'app.setDisplayingPost()'}
           = fa_icon 'file-text-o'
           %span.nav_label POSTS
       %li
@@ -36,12 +36,14 @@
                   = fa_icon 'cog'
                   アカウント設定
               %li= link_to fa_icon('sign-out', text: 'ログアウト'), signout_path, method: :delete
-    = image_tag current_user.icon, style: 'width: 50px;margin 3px 20px;border-radius:50%', class: 'pull-right nav-user-icon'
+    = image_tag current_user.icon, style: 'width: 50px;margin: 3px 20px;border-radius:50%', class: 'pull-right nav-user-icon'
   .app__home{v: {if: 'isDisplayingHome()'}}
-    %h1 ホーム
+    %h2 ホーム
   .app__posts{v: {if: 'isDisplayingPost()'}}
-    %h1 週報
+    = render 'posts/posts'
   .app__academy{v: {if: 'isDisplayingAcademy()'}}
-    %h1 アカデミー生
+    %h2 アカデミー生
   .app__performance{v: {if: 'isDisplayingPerformance()'}}
-    %h1 実績
+    %h2 実績
+= render 'posts/modal_form'
+= render_vue_component_templates

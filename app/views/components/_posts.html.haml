@@ -1,0 +1,9 @@
+%script#vue-posts{type: 'text/x-template'}
+  %ul.list-group
+    %li.list-group-item.posts__list{v: {repeat: 'post : posts'}}
+      .posts__container
+        %img.posts__user-icon{v: {attr: 'src: post.icon'}}
+          .posts__title
+            {{post.title}}
+          .posts__post-updated-date.text-muted.pull-right
+            {{post.updated_at}}
