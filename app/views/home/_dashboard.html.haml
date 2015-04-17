@@ -1,7 +1,42 @@
 #vue-app.app{data: {login_user_id: current_user.id}}
-  = image_tag current_user.icon, style: 'width: 50px;margin 3px 20px;border-radius:50%', class: 'pull-right nav-user-icon'
   .app__navbar-main.col-sm-1
-  .app__navbar-sub
+    %ul.side-nav.nav{style: 'color: white'}
+      %li
+        %a
+          = fa_icon 'pencil-square-o'
+          %span.nav-label New POST
+      %li
+        %a
+          = fa_icon 'home'
+          %span.nav_label HOME
+      %li
+        %a
+          = fa_icon 'tasks'
+          %span.nav_label POSTS
+      %li
+        %a
+          = fa_icon 'line-chart'
+          %span.nav-label PERFORMANCE
+      %li
+        %a
+          = fa_icon 'smile-o'
+          %span.nav-label ACADEMY
+  .app__navbar-sub{style: 'background-color: #E0E0E0;padding-left: 9%;height: 60px'}
+    .navbar-heaer
+      %a.navbar-brand.logo{href: "/", style: 'padding-top: 5px'}
+        = image_tag 'n2jkAcademy-logo.png'
+    .navbar-heaer.navbar-right{style: 'margin-right: 15px'}
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{href: '/', 'data-toggle' => 'dropdown'}
+            = fa_icon 'bars'
+            %ul.dropdown-menu
+              %li
+                %a{data: {target: '#user-modal', toggle: 'modal'}}
+                  = fa_icon 'cog'
+                  アカウント設定
+              %li= link_to fa_icon('sign-out', text: 'ログアウト'), signout_path, method: :delete
+    = image_tag current_user.icon, style: 'width: 50px;margin 3px 20px;border-radius:50%', class: 'pull-right nav-user-icon'
   .app__home
   .app__posts
   .app__academy
