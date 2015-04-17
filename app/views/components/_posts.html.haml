@@ -26,8 +26,9 @@
           削除
     .panel-body.posts__post-body{v: {if: '!editing'}}
       {{{marked(post.body)}}}
+    = render 'comments/comments'
+    .comments__add-form
+      %form{v: {on: 'submit: addComment'}}
+        .form-group
+          %input.form-control{type: 'text', v: {model: 'newComment'}}
 
-    %h3
-      = fa_icon 'comment'
-    %ul
-      %li

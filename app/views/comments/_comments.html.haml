@@ -1,0 +1,7 @@
+#vue-app-comments
+  %h3
+    = fa_icon 'comments-o'
+    コメント
+  %ul.list-group
+    %li.list-group-item.comments__list{v: {repeat: 'comment : comments'}}
+      = vue_component 'commentsComponent', with: 'comment: comment'

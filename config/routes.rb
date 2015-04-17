@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       collection do
         patch 'readall'
       end
-      resource :comments do
+      resources :comments do
         collection do
           patch 'readall'
         end

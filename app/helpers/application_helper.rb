@@ -7,6 +7,6 @@ module ApplicationHelper
   end
 
   def render_vue_component_templates
-    @_vue_component_templates.join("¥n").html_safe
+    @_vue_component_templates.join('').html_safe
   end
 end

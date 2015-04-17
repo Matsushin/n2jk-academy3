@@ -1,0 +1,17 @@
+%script#vue-comments{type: 'text/x-template'}
+  .comments__comment-container
+    .comments__comment-edit-form{v: {if: 'editing'}}
+      %form{v: {on: 'submit: updateComment'}}
+        .form-group
+          %input.form-control{v: {model: 'editingComment.body'}}
+        %input.btn.btn-primary{type: 'submit', value: '更新'}
+        %a.btn.btn-default{v: {on: 'click: toggleEditing'}}
+          キャンセル
+        %a.btn.btn-link.pull-right{v: {on: 'click: deleteComment'}}
+          削除
+    .comments__comment-container
+      %img.comments__user-icon{v: {attr: 'src: comment.icon'}}
+      .comments__comment-body{v: {if: '!editing'}}
+        {{{marked(comment.body)}}}
+        %a.btn.btn-default{v: {on: 'click: toggleEditing', if: 'ownerIsLoginUser()'}}
+          編集
