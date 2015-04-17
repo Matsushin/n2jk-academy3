@@ -11,5 +11,11 @@ $ ->
     methods:
       isDisplayingHome: ->
         @mode == 'home'
+      isDisplayingPost: ->
+        @mode == 'post'
+      isDisplayingAcademy: ->
+        @mode == 'academy'
+      isDisplayingPerformance: ->
+        @mode == 'performance'
       setDisplayingMode: (mode) ->
         @mode = mode
