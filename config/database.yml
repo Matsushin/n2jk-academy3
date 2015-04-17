@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: n2jk-academy3_development
+
+test:
+  <<: *default
+  database: n2jk-academy3_test
+
+production:
+  <<: *default
+  database: n2jk-academy3_production
+  username: n2jk-academy3
+  pasword: <%= ENV['N2JK-ACADEMY3_DATABASE_PASSWORD'] %>

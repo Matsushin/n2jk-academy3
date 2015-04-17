@@ -1,0 +1,9 @@
+#= require jquery
+#= require jquery_ujs
+#= require bootstrap-sprockets
+#= require underscore
+#= require vue
+#= require marked
+#= require nicescroll
+#= require app
+#= require jquery-textcomplete

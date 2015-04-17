@@ -1,0 +1,28 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :nickname
+    = f.text_field :nickname
+  .field
+    = f.label :icon
+    = f.text_field :icon
+  .field
+    = f.label :github_id
+    = f.text_field :github_id
+  .field
+    = f.label :github_token
+    = f.text_field :github_token
+  .actions
+    = f.submit 'Save'

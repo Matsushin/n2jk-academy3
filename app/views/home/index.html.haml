@@ -1,0 +1,14 @@
+- if user_signed_in?
+  = render 'dashboard'
+- else
+  .container.text-center
+    .row
+      .col-sm-12
+        .navbar.navbar-default.navbar-fixed-top
+          .nabvar-header
+            %a.navbar-brand.logo{href: "/"}
+              =image_tag 'n2jkAcademy-logo.png'
+          .navbar-header.navbar-right
+            = link_to fa_icon('github', text:"GitHubで新規登録/ログイン"), signin_path, class: "btn btn-success"
+        .header{style: 'padding:40px;'}
+          %h3 n2jkAcademy3
